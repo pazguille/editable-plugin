@@ -27,15 +27,15 @@ Simple and tiny in-place Editor
 
 ### JavaScript
 ```javascript
-	var $edit = $('#example-one').editable(); // returns a $querySelector
+var $edit = $('#example-one').editable(); // returns a $querySelector
 
-	$edit.on('done.editable', function (event, data) {
-		console.log('Done: ' + data);
-	});
+$edit.on('done.editable', function (event, data) {
+	console.log('Done: ' + data);
+});
 
-	$edit.on('cancel.editable', function (event, data) {
-		console.log('Cancel: ' + data);
-	});
+$edit.on('cancel.editable', function (event, data) {
+	console.log('Cancel: ' + data);
+});
 ```
 
 ## Contact
