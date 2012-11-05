@@ -1,0 +1,14 @@
+[contenteditable] {
+	cursor: pointer;
+}
+
+[contenteditable]:focus,
+[contenteditable]:hover {
+	outline: none;
+	background-color: #FFFFD3;
+}
+
+[contenteditable]:focus {
+	outline: 1px solid #EEEEEE;
+	box-shadow: inset 1px 1px rgba(100, 100, 100, .1);
+}
