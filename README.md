@@ -1,4 +1,3 @@
-
 # Editable Component
 
   Simple and tiny Edit in place component
@@ -26,13 +25,13 @@ $('selector').editable();
 ## API
 
 ### Configuration
-	- `title` Text for `title`
+- `title` Text for title
 
 ### Events
-	- `done` It's emitted when set a new content
-	- `cancel` It's emitted when cancel the edit
+- `done` It's emitted when set a new content
+- `cancel` It's emitted when cancel the edit
 
-## Expample
+## Example
 ### HTML
 ```
 <div id="example">Everything contained within this div is editable.</div>
