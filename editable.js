@@ -1,8 +1,7 @@
 (function (window) {
 	'use strict';
 
-	var $ = window.jQuery,
-		$document = $(window.document);
+	var $ = window.jQuery;
 
 	$.fn.editable = function (options) {
 
