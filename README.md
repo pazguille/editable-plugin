@@ -12,13 +12,13 @@ Adds the stylesheet call into the `<head>` tag.
 <link rel="stylesheet" href="expandible.css">
 ```
 
-Adds the JavaScript at bottom of page, before </body> tag close and after jQuery script call.
+Adds the JavaScript at bottom of page, before `</body>` tag close and after jQuery script call.
 ```
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 <script src="expandible.js"></script>
 ```
 
-Then into your own `script` file initialize a new editable compoente like this:
+Then, you can initialize a new editable component:
 ```javascript
 $('selector').editable();
 ```
