@@ -4,7 +4,7 @@
 	var $ = window.jQuery,
 		$document = $(window.document);
 
-	$.fn.editable = function () {
+	$.fn.editable = function (options) {
 
 		$.each(this, function (i, el) {
 
@@ -12,9 +12,13 @@
 				data = $el.data('editable'),
 				content;
 
+			options = options || {};
+			options.title = options.title || 'Click to edit';
+
 			if (!data) {
 
 				el.setAttribute('contentEditable', true);
+				el.setAttribute('title', options.title);
 				content = el.innerHTML;
 
 				$el.on('keydown.editable', function (event) {
@@ -25,7 +29,7 @@
 					if (esc) {
 						el.innerHTML = content;
 						el.blur();
-						$el.trigger('cancel.editable');
+						$el.trigger('cancel');
 
 					} else if (enter) {
 						el.blur();
@@ -36,7 +40,7 @@
 				$el.on('blur.editable', function () {
 					if (content !== el.innerHTML) {
 						content = el.innerHTML;
-						$el.trigger('done.editable', content);
+						$el.trigger('done', content);
 					}
 				});
 

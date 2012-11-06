@@ -1,40 +1,61 @@
-# Editable JS
 
-Simple and tiny in-place Editor
+# Editable Component
 
-## Use
+  Simple and tiny Edit in place component
 
+## Dependencies
+	- jQuery 1.8.2
+
+## How-to
+Adds the stylesheet call into the `<head>` tag.
+```
+<link rel="stylesheet" href="expandible.css">
+```
+
+Adds the JavaScript at bottom of page, before </body> tag close and after jQuery script call.
+```
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="expandible.js"></script>
+```
+
+Then into your own `script` file initialize a new editable compoente like this:
+```javascript
+$('selector').editable();
+```
+
+## API
+
+### Configuration
+	- `title` Text for `title`
+
+### Events
+	- `done` It's emitted when set a new content
+	- `cancel` It's emitted when cancel the edit
+
+## Expample
 ### HTML
-	<div>
-		<span id="example-one">Everything contained</span> within this div is editable in browsers that support <span id="example-two">HTML5</span>. Go on, give it a try: click it and start typing.
-	</div>
-
-### CSS
-	[contenteditable] {
-		cursor: pointer;
-	}
-
-	[contenteditable]:focus,
-	[contenteditable]:hover {
-		outline: none;
-		background-color: #FFFFD3;
-	}
-
-	[contenteditable]:focus {
-		outline: 1px solid #EEEEEE;
-		box-shadow: inset 1px 1px rgba(100, 100, 100, .1);
-	}
+```
+<div id="example">Everything contained within this div is editable.</div>
+```
 
 ### JavaScript
 ```javascript
-var $edit = $('#example-one').editable(); // returns a $querySelector
-
-$edit.on('done.editable', function (event, data) {
-	console.log('Done: ' + data);
+// Creates a new editable component
+// $edit is a query selector {jQuery Object}
+var $edit = $('#example').editable({
+    'title': 'Please, edit this text.'
 });
 
-$edit.on('cancel.editable', function (event, data) {
-	console.log('Cancel: ' + data);
+// Binds events
+$edit.on('done', function (event, data) {
+	// Some code here!
+	// For example, you can send data to the server by ajax,
+	// or save into localStorage.
+	// Parameter 'data' is the current content.
+});
+
+$edit.on('cancel', function (event, data) {
+	// Some code here!
 });
 ```
 

@@ -11,19 +11,21 @@
 		</div>
 
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="editable.jquery.js"></script>
+		<script src="editable.js"></script>
 		<script>
-			var $edit = $('#example-one').editable();
+			var $edit = $('#example-one').editable({
+				'title': 'Please edit this text.'
+			});
 
-				$edit.on('done.editable', function (event, data) {
-					console.log('$edit: ' + data);
-				});
+			$edit.on('done', function (event, data) {
+				console.log('$edit: ' + data);
+			});
 
 			var $edit2 = $('#example-two').editable();
 
-				$edit2.on('done.editable', function (event, data) {
-					console.log('$edit2: ' + data);
-				});
+			$edit2.on('done', function (event, data) {
+				console.log('$edit2: ' + data);
+			});
 		</script>
 	</body>
 </html>
