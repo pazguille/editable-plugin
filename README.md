@@ -8,13 +8,13 @@
 ## How-to
 Adds the stylesheet call into the `<head>` tag.
 ```
-<link rel="stylesheet" href="expandible.css">
+<link rel="stylesheet" href="editable.css">
 ```
 
 Adds the JavaScript at bottom of page, before `</body>` tag close and after jQuery script call.
 ```
 <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script src="expandible.js"></script>
+<script src="editable.js"></script>
 ```
 
 Then, you can initialize a new editable component:
