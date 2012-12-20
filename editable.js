@@ -1,56 +1,56 @@
 (function (window) {
-	'use strict';
+    'use strict';
 
-	var $ = window.jQuery;
+    var $ = window.jQuery;
 
-	$.fn.editable = function (options) {
+    $.fn.editable = function (options) {
 
-		$.each(this, function (i, el) {
+        $.each(this, function (i, el) {
 
-			var $el = $(el),
-				data = $el.data('editable'),
-				content;
+            var $el = $(el),
+                data = $el.data('editable'),
+                content;
 
-			options = options || {};
-			options.title = options.title || 'Click to edit';
+            options = options || {};
+            options.title = options.title || 'Click to edit';
 
-			if (!data) {
+            if (!data) {
 
-				el.setAttribute('contentEditable', true);
-				el.setAttribute('title', options.title);
-				content = el.innerHTML;
+                el.setAttribute('contentEditable', true);
+                el.setAttribute('title', options.title);
+                content = el.innerHTML;
 
-				$el.on('keydown.editable', function (event) {
+                $el.on('keydown.editable', function (event) {
 
-					var esc = (event.which === 27),
-						enter = (event.which === 13);
+                    var esc = (event.which === 27),
+                        enter = (event.which === 13);
 
-					if (esc) {
-						el.innerHTML = content;
-						el.blur();
-						$el.trigger('cancel');
+                    if (esc) {
+                        el.innerHTML = content;
+                        el.blur();
+                        $el.trigger('cancel');
 
-					} else if (enter) {
-						el.blur();
-					}
+                    } else if (enter) {
+                        el.blur();
+                    }
 
-				});
+                });
 
-				$el.on('blur.editable', function () {
-					if (content !== el.innerHTML) {
-						content = el.innerHTML;
-						$el.trigger('done', content);
-					}
-				});
+                $el.on('blur.editable', function () {
+                    if (content !== el.innerHTML) {
+                        content = el.innerHTML;
+                        $el.trigger('done', content);
+                    }
+                });
 
-				$el.data('editable', {
-					'editable': true,
-					'originalContent': el.innerHTML
-				});
-			}
-		});
+                $el.data('editable', {
+                    'editable': true,
+                    'originalContent': el.innerHTML
+                });
+            }
+        });
 
-		return this;
-	};
+        return this;
+    };
 
 }(this));
